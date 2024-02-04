@@ -25,6 +25,29 @@ int main() {
                 break;
             case 2:
             { 
+                cout << "Opción 2" << endl;
+                //vector de elementos propios (evitar array [i])
+                vector<int> lista_noreply;
+                NumberList lista;
+
+                for (int i = 0; i < 20; i++) {
+                 int corrector = lista.get(i);
+                    //booleano que verifica que corrector vea cual numero esta repetido
+                    bool repetido = false;
+                    //recordar que size permite que el valor nulo (j) no haga conflcito en el bucle
+                 for (int j = 0; j < lista_noreply.size(); j++) {
+                     if (lista_noreply[j] == corrector) {
+                          repetido = true;
+                          break;
+                        }
+                    }
+                 if (!repetido) {
+                       lista_noreply.push_back(corrector);
+                    }
+             }
+             for (int i = 0; i < lista_noreply.size(); i++) {
+                  cout << lista_noreply[i] << " ";
+              }
                 }       
                 break;
             case 3:
