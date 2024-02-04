@@ -1,6 +1,7 @@
 #include <iostream>
 #include "libs/NumberList.h"
 #include "libs/NumberMatrix.h"
+#include "vector"
 
 using namespace std;
 
@@ -13,6 +14,9 @@ int main() {
     int option = 0;
     NumberList list;
     NumberMatrix matrix;
+// RECORDAR, SI NO ITERA BIEN Y QUEDA NULA LA VARIABLE, TAL VEZ SEA PORQUE LA LISTA BASE SEA LOCAL Y NO GLOBAL
+    NumberList lista;
+
 
     do {
         cout << "Ingrese una opción: ";
@@ -21,8 +25,21 @@ int main() {
        switch (option){
 
             case 1:
+            {
                 cout << "Opción 1" << endl;
+                int i, j;
+                string lista_de_veinte;
+                lista.clear();
+
+                for(i=0; i < 20; i++){
+                    int num = rand() % 10 + 1;
+                    lista.add(num);
+                }                  
+                lista_de_veinte = lista.toString();
+                cout << lista_de_veinte << endl;
+                }
                 break;
+
             case 2:
             { 
                 cout << "Opción 2" << endl;
@@ -49,20 +66,46 @@ int main() {
                   cout << lista_noreply[i] << " ";
               }
                 }       
+                NumberList sinrepetir;
+  
+                 for (int i = 0; i < lista.size; i++) {
+                 int actual = lista.get(i);  
+                 if (!sinrepetir.contains(actual)) {
+                      sinrepetir.add(actual);
+                    }  
+                }
+                for (int i = 1; i <= 10; i++) {
+                 if (!sinrepetir.contains(i)) {
+                 sinrepetir.add(i); 
+                    } 
+                }
+                string lista_sin_repetir = sinrepetir.toString();
+                cout << lista_sin_repetir << endl;             
+                }        
                 break;
             case 3:
+            {
                 cout << "Opción 3" << endl;
+                }
                 break;
             case 4:
+            {
+                
                 cout << "Opción 4" << endl;
+                }
                 break;
             case 5:
+            {
                 cout << "Opción 5" << endl;
+                }
                 break;
             case 0:
+            {
                 cout << "Saliendo..." << endl;
+                }
                 break;
             default:
+            
                 cout << "Opción inválida" << endl;
                 break;
         } 
