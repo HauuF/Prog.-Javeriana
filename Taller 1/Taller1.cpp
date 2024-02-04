@@ -18,13 +18,14 @@ int main() {
         cout << "Ingrese una opción: ";
         cin >> option;
 
-       switch (option)
-        {
+       switch (option){
+
             case 1:
                 cout << "Opción 1" << endl;
                 break;
             case 2:
-                cout << "Opción 2" << endl;
+            { 
+                }       
                 break;
             case 3:
                 cout << "Opción 3" << endl;
