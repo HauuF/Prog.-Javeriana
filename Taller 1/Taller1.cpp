@@ -96,21 +96,26 @@ int main() {
                 break;
             case 3:
             {
-                cout << "Opción 3" << endl;
-                NumberList numeroveces;
-
-                for (int i = 0; i < lista.size; i++) {
-                    int actual = lista.get(i);
-                    int contador = 0;
-                 for (int j = 0; j < lista.size; j++) {
-                        if(lista.get(j) == actual) {
-                        contador++;
-                        }
-                    }
-                    numeroveces.add(contador); 
-                    }
-                string reiteraciones = numeroveces.toString();
-                cout << reiteraciones << endl;
+            cout << "Opción 3" << endl;
+            NumberList numeroveces; 
+            for (int i = 0; i < lista.size; i++) {
+                int actual = lista.get(i);
+                if (!numeroveces.contains(actual)) {
+                numeroveces.add(actual); 
+                }
+            }
+            NumberList conteos;
+            for (int i = 0; i < numeroveces.size; i++) {
+                int numero = numeroveces.get(i);  
+                int count = 0;
+                    for (int j = 0; j < lista.size; j++) {
+                    if (lista.get(j) == numero) {
+                    count++;
+                }
+            }
+            conteos.add(count);
+            }
+             cout << conteos.toString() << endl;
                 }
                 break;
             case 4:
