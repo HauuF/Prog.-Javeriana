@@ -84,14 +84,14 @@ struct NumberMatrix {
         return other;
     }
 
-    cell getMinimumValueOfColumn(int column) {
-        int minimum = rows[0].get(column);
-
-        cell result;
-
-        //Acá se debe completar el código
-        
-        return result;
+    void getMinimumValueOfColumn(int& minimo, int& filaminimo, int columna){
+    for(int fila = 0; fila < 5; fila++) {
+        int valor = get(fila, columna);
+        if (valor < minimo) {
+            minimo = valor;
+            filaminimo = fila;
+            }
+        }
     }
 
     string toString() {
@@ -110,10 +110,17 @@ struct NumberMatrix {
 
 };
 
-NumberMatrix generateNumberMatrixWithRandomNumbers(int rows, int columns, int min, int max) {
-    NumberMatrix result;
-    //Acá se debe completar el código
-    return result;
+void generateNumberMatrixWithRandomNumbers(NumberMatrix& matriz) {
+    matriz.clear();
+    srand(time(0));
+    for(int i = 0; i < 5; i++) {
+        NumberList rowrandom;
+        for(int j = 0; j < 5; j++) {
+            int num = rand() % 10 + 1;
+            rowrandom.add(num);
+            }
+    matriz.addRow(rowrandom);
+}
 }
 
 #endif /* NUMBERMATRIX_H */

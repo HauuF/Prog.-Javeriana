@@ -74,31 +74,46 @@ struct NumberList {
     }
 };
 
-NumberList generateNumberListWithRandomNumbers(int size, int min, int max) {
-    NumberList result;
-    
-    for (int i = 0; i < size; i++) {
-        result.add(rand() % (max - min + 1) + min);
+void generateNumberListWithRandomNumbers(NumberList& lista) {
+    lista.clear();
+    srand(time(0));
+    for(int i=0; i < 20; i++){
+        int num = rand() % 10 + 1;
+        lista.add(num);
     }
-
-    return result;
 }
 
-NumberList getNumberListWithoutRepetitions(NumberList list) {
-    NumberList result;
-    
-    //Acá se debe completar el código
-
-    return result;
+void getNumberListWithoutRepetitions(NumberList& sinrepetir, NumberList& lista) {
+    for (int i = 0; i < lista.size; i++) {
+    int actual = lista.get(i);
+    if (!sinrepetir.contains(actual)) {
+        sinrepetir.add(actual);
+        }
+    }
+        for (int i = 1; i <= 10; i++) {
+            if (!sinrepetir.contains(i)) {
+            sinrepetir.add(i);
+        }
+    }
 }
 
-NumberList getNumberListWithNumberOfRepetitions(NumberList list, NumberList listWithoutRepetitions) {
-    NumberList result;
-
-    //Acá se debe completar el código
-
-    return result;
-    
+void getNumberListWithNumberOfRepetitions(NumberList& numeroveces, NumberList& conteos, NumberList& lista) {
+    for (int i = 0; i < lista.size; i++) {
+    int actual = lista.get(i);
+    if (!numeroveces.contains(actual)) {
+    numeroveces.add(actual);
+    }
+}
+    for (int i = 0; i < numeroveces.size; i++) {
+        int numero = numeroveces.get(i);
+        int count = 0;
+        for (int j = 0; j < lista.size; j++) {
+            if (lista.get(j) == numero) {
+                count++;
+                }
+            }
+        conteos.add(count);
+    }
 }
 
 #endif /* NUMBERLIST_H */
